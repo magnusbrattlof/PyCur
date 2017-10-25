@@ -8,7 +8,9 @@ class Pycur:
 
     def __init__(self, base=None):
         self.base = base
-        
+        if type(self.base) != str:
+            raise ("Error")
+
     def get_currency(self):
         self.URL = BASE_URL + 'latest?base={}'.format(self.base)
         self.raw_data = requests.get(self.URL).text
